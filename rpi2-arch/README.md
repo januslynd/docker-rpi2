@@ -1,13 +1,22 @@
-# Archlinux ARM (RPI2)
+# Archlinux (RPI2)
 
 This is a Docker ArchlinuxARM base image. In order to build the image
-you have to :
+and once you are in the `rpi2-arch` directory, the you have to:
 
-- Download the latest ArchARM distro for Raspberry Pi 2 `tar.gz`
-- Rename it to `archlinux.tar.gz` distribution
-- Execute:
+- Download the latest ArchARM distro for Raspberry Pi 2 and name it
+  `archlinux.tar.gz`
 
-    docker build -t rpi2-arch .
+```
+curl -L http://archlinuxarm.org/os/ArchLinuxARM-rpi-2-latest.tar.gz -o archlinux.tar.gz
+```
 
-And after a while (it could really take a while :P) you'll have the
-base image for anything you want.
+- Then execute:
+
+```
+./build.sh
+```
+
+And after a while (go and grab a coffee cause it could really take a
+while :P) you'll have an ArchLinux distro for your rpi2 Docker images.
+
+Based on this blog: http://linucc.github.io/docker-arch-rpi2/
