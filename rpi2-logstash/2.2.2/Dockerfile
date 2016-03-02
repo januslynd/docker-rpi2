@@ -12,3 +12,6 @@ RUN cd /opt && \
 
 ENV PATH /opt/logstash/bin:$PATH
 ENV LS_HEAP_SIZE 64m
+
+ENTRYPOINT ["/docker-entrypoint.sh"]
+CMD ["logstash", "agent"]
