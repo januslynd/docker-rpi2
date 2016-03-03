@@ -19,6 +19,7 @@ ENV PATH /usr/share/elasticsearch-$EL_VERSION/bin:$PATH
 
 # Set the working dir
 WORKDIR /usr/share/elasticsearch-$EL_VERSION
+RUN mkdir -p /usr/share/elasticsearch-$EL_VERSION/plugins/
 
 # Setting ownership
 RUN set -ex \
@@ -27,6 +28,7 @@ RUN set -ex \
 		./logs \
 		./config \
 		./config/scripts \
+        ./plugins \
 	; do \
 		mkdir -p "$path"; \
 		chown -R elasticsearch:elasticsearch "$path"; \
