@@ -14,9 +14,6 @@ RUN cd /usr/share && \
     rm elasticsearch-$EL_VERSION.tar.gz && \
     ln -s elasticsearch-$EL_VERSION logstash
 
-# Execution now on as elasticsearch user
-USER elasticsearch
-
 # Making elasticsearch available
 ENV PATH /usr/share/elasticsearch-$EL_VERSION/bin:$PATH
 
@@ -41,3 +38,6 @@ VOLUME ./data
 
 # Exposing elastic search default ports
 EXPOSE 9200 9300
+
+# Execution now on as elasticsearch user
+USER elasticsearch
