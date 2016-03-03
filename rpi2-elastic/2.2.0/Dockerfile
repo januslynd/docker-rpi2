@@ -5,6 +5,7 @@ ENV EL_VERSION 2.2.0
 # Installing wget in order to download elasticsearch from elastic.co
 RUN pacman --noconfirm -S wget
 
+USER elasticsearch
 RUN cd /usr/share && \
     wget https://download.elasticsearch.org/elasticsearch/release/org/elasticsearch/distribution/tar/elasticsearch/$EL_VERSION/elasticsearch-$EL_VERSION.tar.gz && \
     tar -xvzf elasticsearch-$EL_VERSION.tar.gz && \
