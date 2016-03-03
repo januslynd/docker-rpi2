@@ -12,9 +12,9 @@ RUN cd /usr/share && \
     ln -s elasticsearch-$EL_VERSION logstash
 
 # Making elasticsearch available
-ENV PATH /usr/share/elasticsearch/bin:$PATH
+ENV PATH /usr/share/elasticsearch-$EL_VERSION/bin:$PATH
 
-WORKDIR /usr/share/elasticsearch
+WORKDIR /usr/share/elasticsearch-$EL_VERSION
 
 COPY config ./config
 VOLUME ./data
