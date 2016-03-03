@@ -2,6 +2,9 @@ FROM com.github.januslynd/rpi2-java:8
 
 ENV EL_VERSION 2.2.0
 
+# Adding elasticsearch user
+RUN useradd -ms /bin/bash elasticsearch
+
 # Installing wget in order to download elasticsearch from elastic.co
 RUN pacman --noconfirm -S wget
 
