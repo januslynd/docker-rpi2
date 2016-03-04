@@ -10,7 +10,7 @@ RUN cd /opt && \
     tar -xvzf kibana-$KIBANA_VERSION-linux-x86.tar.gz && \
     rm kibana-$KIBANA_VERSION-linux-x86.tar.gz && \
     ln -s kibana-$KIBANA_VERSION-linux-x86 kibana && \
-    chown -R kibana:kibana /opt/kibana \
+    chown -R kibana:kibana /opt/kibana
 
 ENV PATH /opt/kibana/bin:$PATH
 
