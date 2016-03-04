@@ -7,7 +7,7 @@ ENV KIBANA_VERSION 4.4.1
 
 RUN cd /opt && \
     curl -O https://download.elastic.co/kibana/kibana/kibana-$KIBANA_VERSION-linux-x86.tar.gz && \
-    tar -xvzf kibana-$KIBANA_VERSION.tar.gz && \
+    tar -xvzf kibana-$KIBANA_VERSION-linux-x86.tar.gz && \
     rm kibana-$KIBANA_VERSION.tar.gz && \
     ln -s kibana-$KIBANA_VERSION kibana && \
     chown -R kibana:kibana /opt/kibana \
