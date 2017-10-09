@@ -1,4 +1,4 @@
-FROM com.github.januslynd/rpi2-java:8
+FROM com.github.mariogarcia/rpi2-java:8
 
 ENV LS_VERSION 2.2.2
 

@@ -1,3 +1,3 @@
 #!/bin/sh
 
-docker build -t com.github.januslynd/rpi2-java:8 .
+docker build -t com.github.mariogarcia/rpi2-java:8 .

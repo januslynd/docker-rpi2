@@ -1,4 +1,4 @@
-FROM com.github.januslynd/rpi2-arch
+FROM com.github.mariogarcia/rpi2-arch
 
 RUN mkdir /java
 COPY jdk-8u73-linux-arm32-vfp-hflt.tar.gz /java

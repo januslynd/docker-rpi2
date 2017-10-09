@@ -1,3 +1,3 @@
 #!/bin/sh
 
-docker build -t com.github.januslynd/rpi2-elastic:2.2.0 .
+docker build -t com.github.mariogarcia/rpi2-elastic:2.2.0 .

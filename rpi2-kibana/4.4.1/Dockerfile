@@ -1,4 +1,4 @@
-FROM com.github.januslynd/rpi2-arch
+FROM com.github.mariogarcia/rpi2-arch
 
 # add our user and group first to make sure their IDs get assigned consistently
 RUN groupadd -r kibana && useradd -r -m -g kibana kibana

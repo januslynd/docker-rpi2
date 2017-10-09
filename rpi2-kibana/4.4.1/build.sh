@@ -1,3 +1,3 @@
 #!/bin/sh
 
-docker build -t com.github.januslynd/rpi2-kibana:4.4.1 .
+docker build -t com.github.mariogarcia/rpi2-kibana:4.4.1 .
