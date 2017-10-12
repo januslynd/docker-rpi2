@@ -1,6 +1,7 @@
 FROM com.github.mariogarcia/rpi2-java:8
 
 # BUILD DEPENDENCIES
+COPY mirrorlist /etc/pacman.d/
 RUN pacman -Syyu --noconfirm && pacman --noconfirm -Syy firefox chromium unzip go
 
 ENV GROOVY_VERSION 2.4.12
