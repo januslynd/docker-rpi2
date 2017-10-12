@@ -1,7 +1,7 @@
 FROM com.github.mariogarcia/rpi2-java:8
 
 # BUILD DEPENDENCIES
-RUN pacman -Syu --noconfirm && pacman --noconfirm -S unzip go
+RUN pacman -Syyu --noconfirm && pacman --noconfirm -Syy firefox chromium unzip go
 
 ENV GROOVY_VERSION 2.4.12
 ENV GROOVYSERV_VERSION 1.1.0
