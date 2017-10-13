@@ -2,7 +2,12 @@ FROM com.github.mariogarcia/rpi2-java:8
 
 # BUILD DEPENDENCIES
 COPY mirrorlist /etc/pacman.d/
-RUN pacman -Syyu --noconfirm && pacman --noconfirm -Syy firefox unzip go
+RUN pacman -Syyu --noconfirm && \
+    pacman --noconfirm -Syy \
+    firefox \
+    unzip \
+    go \
+    xorg-server-xvfb
 
 # VERSIONS
 ENV GECKO_DRIVER=0.19.0
@@ -36,14 +41,12 @@ RUN cd /tmp/groovyserv-$GROOVYSERV_VERSION/ && ./gradlew clean distLocalBin
 RUN unzip /tmp/groovyserv-$GROOVYSERV_VERSION/build/distributions/groovyserv-$GROOVYSERV_VERSION-bin-local.zip \
     -d /opt/groovyserv/
 
-# HACK TO KEEP CONTAINER ALIVE
-RUN touch /opt/groovyserv/groovyserv.txt
-
 # ENVIRONMENT
+ENV DISPLAY :10
 ENV GROOVY_HOME /opt/groovy/groovy-$GROOVY_VERSION
 ENV GROOVY_SERVER /opt/groovyserv/groovyserv-$GROOVYSERV_VERSION
 ENV PATH $PATH:$GROOVY_HOME/bin:$GROOVY_SERVER/bin
-ENV JAVA_OPTS="-Djava.security.egd=file:/dev/./urandom -Dwebdriver.gecko.driver=/opt/geckodriver/geckodriver -Djava.awt.headless=true -Xmx128m"
+ENV JAVA_OPTS="-Djava.security.egd=file:/dev/./urandom -Dwebdriver.gecko.driver=/opt/geckodriver/geckodriver -Djava.awt.headless=true -Xmx512m "
 
 # ENTRYPOINT
-ENTRYPOINT ["tail", "-f", "/opt/groovyserv/groovyserv.txt"]
+ENTRYPOINT ["Xvfb", ":10", "-ac"]
