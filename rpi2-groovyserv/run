@@ -1,0 +1,8 @@
+#!/usr/bin/env
+
+docker run -d \
+    -v $HOME/data:/data \
+    -v $HOME_SCRIPTS/:/scripts \
+    -v $HOME/.groovy:/groovy-downloads \
+    --name groovyserv \
+    com.github.mariogarcia/rpi2-groovyserv
