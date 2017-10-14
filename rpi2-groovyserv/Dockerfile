@@ -15,12 +15,13 @@ ENV GROOVY_VERSION 2.4.12
 ENV GROOVYSERV_VERSION 1.1.0
 
 # GECKO_DRIVER
+ENV GECKO_PATH /opt/geckodriver/
 RUN curl \
     -L https://github.com/mozilla/geckodriver/releases/download/v${GECKO_DRIVER}/geckodriver-v${GECKO_DRIVER}-arm7hf.tar.gz \
     --output /tmp/geckodriver-${GECKO_DRIVER}.tar.gz
 
-RUN mkdir -p /opt/geckodriver/
-RUN tar xf /tmp/geckodriver-${GECKO_DRIVER}.tar.gz -C /opt/geckodriver/
+RUN mkdir -p $GECKO_PATH
+RUN tar xf /tmp/geckodriver-${GECKO_DRIVER}.tar.gz -C $GECKO_PATH
 
 # GROOVY
 RUN curl \
@@ -45,7 +46,7 @@ RUN unzip /tmp/groovyserv-$GROOVYSERV_VERSION/build/distributions/groovyserv-$GR
 ENV DISPLAY :10
 ENV GROOVY_HOME /opt/groovy/groovy-$GROOVY_VERSION
 ENV GROOVY_SERVER /opt/groovyserv/groovyserv-$GROOVYSERV_VERSION
-ENV PATH $PATH:$GROOVY_HOME/bin:$GROOVY_SERVER/bin
+ENV PATH $PATH:$GROOVY_HOME/bin:$GROOVY_SERVER/bin:$GECKO_PATH
 ENV JAVA_OPTS="-Djava.security.egd=file:/dev/./urandom -Dwebdriver.gecko.driver=/opt/geckodriver/geckodriver -Djava.awt.headless=true -Xmx512m "
 
 # ENTRYPOINT
